@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ROCK. chat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/chatbot.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 id="logo">ROCK.</h1>
+            <nav>
+                <ul>
+                    <li id="hom">Home</li>
+                    <li>About</li>
+                    <li>Login</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="chat_container">
+        <h1>Discipline. Drive. Dominate. Let’s talk.</h1>
+        <textarea id="message" placeholder="You bring the commitment. I'll bring the plan. Ask me anything — training, food, recovery — and let's build the hardest worker in the room: you"></textarea>
+        <button onclick="sendMessage()">Send It, Champ</button>
+        <div id="chat"></div>
+    </div>
+
+    <script>
+        async function sendMessage() {
+        const message = document.getElementById('message').value;
+        const chatBox = document.getElementById('chat');
+
+        if (!message.trim()) return;
+
+        chatBox.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
+
+        const res = await fetch('/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message }),
+        });
+
+        const data = await res.json();
+        chatBox.innerHTML += `<p><strong>The Rock:</strong> ${data.reply}</p>`;
+
+        document.getElementById('message').value = '';
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+    </script>
+
+</body>
+</html>
