@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rock. - Subscription Plans</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+        background-image: url('images/black-mountains-landscape.jpg');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        min-height: 100vh;
+        color: white;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: -1;
+    }
+
+    header {
+      width: 100%;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      color: white;
+      font-size: 1.1em;
+    }
+
+    .container {
+      display: flex;
+      width: 80%;
+      margin: auto;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      font-weight: 600;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    nav ul li:hover {
+      transform: scale(1.1);
+    }
+
+    #logo {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: white;
+    }
+
+    #hom {
+      color: #f29e0c;
+    }
+
+    .pricing-hero {
+      text-align: center;
+      padding: 3rem 2rem 1rem;
+    }
+
+    .pricing-hero h1 {
+      font-size: 3rem;
+      color: #f29e0c;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .pricing-hero p {
+      color: #ccc;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .pricing-tiers {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+      align-items: stretch;
+    }
+
+    .tier-wrapper {
+      flex: 1 1 300px;
+      display: flex;
+    }
+
+    .tier-card {
+      flex: 1;
+      background: rgba(26, 26, 26, 0.85);
+      border: 2px solid #333;
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 0 15px rgba(253, 216, 53, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .tier-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px rgba(253, 216, 53, 0.5);
+    }
+
+    .tier-card h2 {
+      color: white;
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .tier-card .price {
+      color: #f29e0c;
+      font-size: 2rem;
+      margin: 1rem 0;
+    }
+
+    .tier-card ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      color: #ccc;
+      font-size: 0.95rem;
+      margin: 1rem 0;
+    }
+
+    .tier-card ul li {
+      margin-bottom: 0.5rem;
+      word-wrap: break-word;
+      line-height: 1.5;
+    }
+
+    .tier-card .cta {
+      display: inline-block;
+      background: #f29e0c;
+      color: #000;
+      padding: 0.75rem 1.5rem;
+      margin-top: 1rem;
+      border-radius: 6px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .pricing-tiers {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 id="logo">Rock.</h1>
+      <nav>
+        <ul>
+          <li id="hom">Home</li>
+          <li>About</li>
+          <li>Login</li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="pricing-hero">
+    <h1>Choose Your Strength Plan</h1>
+    <p>Flexible pricing for every fitness journey.</p>
+  </section>
+
+  <section class="pricing-tiers">
+    <div class="tier-wrapper">
+      <div class="tier-card">
+        <div>
+          <h2>Starter</h2>
+          <p class="price">$29/mo</p>
+          <ul>
+            <li>100 messages per month
+            <li>Basic NLP</li>
+            <li>No integrations</li>
+          </ul>
+        </div>
+        <a href="checkout.html" class="cta" onclick="storePlan('Starter', 29)">Subscribe</a>
+      </div>
+    </div>
+
+    <div class="tier-wrapper">
+      <div class="tier-card">
+        <div>
+          <h2>Pro</h2>
+          <p class="price">$59/mo</p>
+          <ul>
+            <li>5,000 messages per month</li>
+            <li>Custom personality and tone settings</li>
+            <li>Integrations with Slack, Discord, or a website</li>
+          </ul>
+        </div>
+        <a href="checkout.html" class="cta" onclick="storePlan('Pro', 59)">Subscribe</a>
+      </div>
+    </div>
+
+    <div class="tier-wrapper">
+      <div class="tier-card">
+        <div>
+          <h2>Elite</h2>
+          <p class="price">$99/mo</p>
+          <ul>
+            <li>Unlimited messages</li>
+            <li>Persistent memory and context</li>
+            <li>Upload-your-own-data</li>
+          </ul>
+        </div>
+        <a href="checkout.html" class="cta" onclick="storePlan('Elite', 99)">Subscribe</a>
+      </div>
+    </div>
+  </section>
+</body>
+<script>
+    function storePlan(tier, price) {
+      const cart = [{ name: tier, price: price }];
+      sessionStorage.setItem('cart', JSON.stringify(cart));
+    }
+</script>
+</html>
