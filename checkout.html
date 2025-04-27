@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background-image: url('images/black-mountains-landscape.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+      color: white;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: -1;
+    }
+
+    header {
+      width: 100%;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      color: white;
+      font-size: 1.1em;
+    }
+
+    .container {
+      display: flex;
+      width: 80%;
+      margin: auto;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      font-weight: 600;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    nav ul li:hover {
+      transform: scale(1.1);
+    }
+
+    #logo {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: white;
+    }
+
+    #cart-highlight {
+      color: #f29e0c;
+    }
+
+    .cart-section {
+      text-align: center;
+      padding: 3rem 2rem 1rem;
+    }
+
+    .cart-section h1 {
+      font-size: 3rem;
+      color: #f29e0c;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .cart-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .cart-card {
+      background: rgba(26, 26, 26, 0.85);
+      border: 2px solid #333;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(253, 216, 53, 0.2);
+    }
+
+    .cart-card p {
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+
+    .total-text {
+      font-size: 1.5rem;
+      color: #f29e0c;
+      font-weight: 700;
+      margin-top: 1rem;
+    }
+
+    .button-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .cta {
+      display: inline-block;
+      background: #f29e0c;
+      color: #000;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 id="logo">Rock.</h1>
+      <nav>
+        <ul>
+          <li><a href="products.php" style="color:white; text-decoration:none;">Shop</a></li>
+          <li id="cart-highlight">Cart</li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="cart-section">
+    <h1>Your Cart</h1>
+    <div class="cart-items" id="cartContainer">
+      <!-- JavaScript populates this -->
+    </div>
+    <div class="button-wrapper" id="buttonContainer">
+      <a href="tiers.html" class="cta">Keep Shopping</a>
+    </div>
+  </section>
+
+  <script>
+    const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+    const cartContainer = document.getElementById('cartContainer');
+    const buttonContainer = document.getElementById('buttonContainer');
+
+    if (cart.length === 0) {
+      const empty = document.createElement('p');
+      empty.textContent = 'No items currently in cart.';
+      empty.style.color = '#ccc';
+      cartContainer.appendChild(empty);
+    } else {
+      let total = 0;
+      cart.forEach(item => {
+        const card = document.createElement('div');
+        card.classList.add('cart-card');
+
+        const text = document.createElement('p');
+        const itemTotal = item.price;
+        total += itemTotal;
+
+        const description = {
+          "Starter": "Get 100 messages a month, basic NLP to power your moves, and no integrations—just the essentials to get you started!",
+          "Pro": "5,000 messages per month, a personality that’s all yours, and seamless integrations with Slack, Discord, or your website—get ready to take it to the next level!",
+          "Elite": "Unlimited messages, a memory that never forgets, and the power to upload your own data—this is the full package!",
+        };
+
+        let extraInfo = description[item.name] || "";
+
+        text.innerHTML = `<strong>${item.name}</strong> — $${item.price.toFixed(2)}<br><small style="color:#aaa;">${extraInfo}</small>`;
+        
+        card.appendChild(text);
+        cartContainer.appendChild(card);
+      });
+
+      const totalText = document.createElement('div');
+      totalText.classList.add('total-text');
+      totalText.textContent = `Your Total is: $${total}`;
+      cartContainer.appendChild(totalText);
+
+      const checkoutBtn = document.createElement('a');
+      checkoutBtn.textContent = 'Checkout';
+      checkoutBtn.classList.add('cta');
+      checkoutBtn.onclick = () => {
+        Swal.fire({
+          title: 'Processing...',
+          text: 'Please wait while we complete your order.',
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+          didOpen: () => {
+            Swal.showLoading();
+          }
+        });
+
+        fetch('/submit-order', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items: cart, total })
+        })
+        .then(res => res.json())
+        .then(res => {
+          if (res.success) {
+            setTimeout(() => {
+              Swal.close();
+              Swal.fire({
+                title: 'Order Complete!',
+                text: 'Thanks for your purchase!',
+                icon: 'success',
+                confirmButtonText: 'Awesome!'
+              }).then(() => {
+                window.location.href = 'index.html';
+              });
+
+              confetti({
+                particleCount: 200,
+                spread: 70,
+                origin: { y: 0.6 }
+              });
+
+              sessionStorage.removeItem('cart');
+            }, 1000);
+          } else {
+            Swal.fire({
+              title: 'Error',
+              text: res.error || 'Something went wrong!',
+              icon: 'error'
+            });
+          }
+        });
+      };
+      buttonContainer.appendChild(checkoutBtn);
+    }
+  </script>
+</body>
+</html>
