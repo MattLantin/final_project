@@ -19,7 +19,173 @@
                     <li>About</li>
                     <li id="hom">Chat</li>
                     <li>Pricing</li>
-                </ul>
+                    <li>Cart</li>
+                </ul>* {
+    margin: 0;
+    padding: 0;
+    font-family: "Quicksand", sans-serif;
+}
+
+body {
+    background-image: url(chatbot.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    width: 100%;
+    height: 100vh;
+}
+
+h1 {
+    color: #f29e0c;
+    font-size: 32px;
+    margin-right: 850px;
+}
+
+textarea {
+    color: black;
+    background-color: rgba(255,255,255,0.8);
+    width: 80%;
+    max-width: 700px;
+    height: 100px;
+    border-radius: 10px;
+    border: 4.5px solid #f29e0c;
+    font-size: 20px;
+    resize: none;
+    padding: 10px;
+    margin-top: 120px;
+    font-weight: bold;
+}
+
+.chat_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+button {
+    width: 215px;
+    height: 45px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f29e0c;
+    font-weight: bold;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+#chat {
+    margin-top: 30px;
+    width: 80%;
+    max-width: 1000px;
+    height: 350px;
+    border-radius: 10px;
+    border: 2px solid #333;
+    box-shadow: 0 0 15px rgba(253, 216, 53, 0.5);
+    padding: 20px;
+    background-color: rgba(0,0,0,0.9);
+    color: #ffffff;
+    overflow-y: auto;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#chat p {
+    margin-bottom: 10px;
+}
+
+strong {
+    color: #f29e0c;
+}
+    
+ul {
+    color: #f29e0c;
+    font-weight: 700;
+}
+
+header{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1.1em;
+}
+
+.container{
+    display: flex;
+    width: 80%;
+    margin: auto;
+}
+
+nav{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+#hom{
+    color: #f29e0c;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+}
+
+ul li{
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+ul li:hover{
+    transform: scale(1.1);
+}
+
+
+#logo {
+    color: black;
+    font-size: 2em;
+}
+
+
+@media(max-width:820px){
+    nav{
+        display: none;
+    }
+}
+@media (max-width: 768px) {
+    body {
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+    }
+}
+
+@media(max-width:600px){
+    main{
+        width: 400px;
+    }
+}
+
+@media(max-width:500px){
+    main{
+        width: 300px;
+    }
+}
             </nav>
         </div>
     </header>
