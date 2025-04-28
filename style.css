@@ -99,6 +99,8 @@ main p {
     font-weight: 1000;
     background-color: rgba(50, 50, 50, 0.5); /* <-- semi-transparent gray */
     border-radius: 10px; /* optional: makes edges rounded */
+    box-shadow: 0 0 15px rgba(253, 216, 53, 0.5);
+    border: 2px solid rgba(50, 50, 50, 0.05);
 }
 
 #logo {
