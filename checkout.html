@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Checkout</title>
+  <title>DwayneBot Cart</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
@@ -21,7 +21,7 @@
     }
 
     body {
-      background-image: url('images/black-mountains-landscape.jpg');
+      background-image: url('images/pricing.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -35,7 +35,7 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.55);
       z-index: -1;
     }
 
@@ -55,12 +55,15 @@
       justify-content: space-between;
       align-items: center;
     }
-
+    
     nav ul {
+      width: 100%;
       display: flex;
       gap: 30px;
       list-style: none;
-      font-weight: 600;
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #f29e0c;
     }
 
     nav ul li {
@@ -71,15 +74,21 @@
     nav ul li:hover {
       transform: scale(1.1);
     }
-
+    
     #logo {
-      font-size: 1.8em;
+      font-size: 2em;
       font-weight: bold;
       color: white;
     }
+    
+    a:hover{
+        transform: scale(1.1);
+}
 
     #cart-highlight {
       color: #f29e0c;
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
     }
 
     .cart-section {
@@ -108,25 +117,26 @@
       border: 2px solid #333;
       padding: 1.5rem;
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba(253, 216, 53, 0.2);
+      box-shadow: 0 0 15px rgba(253, 216, 53, 0.35);
     }
 
     .cart-card p {
-      font-size: 1.1rem;
+      font-size: 1.6rem;
+      font-weight: 600;
       color: #ccc;
     }
 
     .total-text {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       color: #f29e0c;
-      font-weight: 700;
-      margin-top: 1rem;
+      font-weight: bold;
+      margin-top: 2.5rem;
     }
 
     .button-wrapper {
       display: flex;
       justify-content: center;
-      gap: 1rem;
+      gap: 2rem;
       margin-top: 2rem;
     }
 
@@ -139,29 +149,33 @@
       font-weight: 700;
       text-decoration: none;
       cursor: pointer;
+      font-size: 1.5rem;
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <h1 id="logo">Rock.</h1>
-      <nav>
-        <ul>
-          <li><a href="products.php" style="color:white; text-decoration:none;">Shop</a></li>
-          <li id="cart-highlight">Cart</li>
-        </ul>
-      </nav>
+      <h1 id="logo">DwayneBot</h1>
+          <nav>
+              <ul>
+                  <li>Home</li>
+                  <li>About</li>
+                  <li>Chat</li>
+                  <li>Pricing</li>
+                  <li id="cart-highlight">Cart</li>
+              </ul>
+          </nav>
     </div>
   </header>
 
-  <section class="cart-section">
+  <section class="cart-section" style="margin-top: 80px;">
     <h1>Your Cart</h1>
     <div class="cart-items" id="cartContainer">
       <!-- JavaScript populates this -->
     </div>
     <div class="button-wrapper" id="buttonContainer">
-      <a href="tiers.html" class="cta">Keep Shopping</a>
+      <a href="tiers.html" class="cta">Get Shopping</a>
     </div>
   </section>
 
@@ -172,8 +186,10 @@
 
     if (cart.length === 0) {
       const empty = document.createElement('p');
-      empty.textContent = 'No items currently in cart.';
+      empty.textContent = 'Your cart is empty! Subscribe today to turn some heads and start building a physique that rivals this one!';
       empty.style.color = '#ccc';
+      empty.style.fontSize = '1.5rem';
+      empty.style.fontWeight = 'bold';
       cartContainer.appendChild(empty);
     } else {
       let total = 0;
