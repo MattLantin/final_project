@@ -118,6 +118,8 @@ ul {
 
 #hom{
     color: #f29e0c;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
 }
 
 ul li{
