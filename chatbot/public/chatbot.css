@@ -64,6 +64,8 @@ button:hover {
     max-width: 1000px;
     height: 350px;
     border-radius: 10px;
+    border: 2px solid #333;
+    box-shadow: 0 0 15px rgba(253, 216, 53, 0.5);
     padding: 20px;
     background-color: rgba(0,0,0,0.9);
     color: #ffffff;
