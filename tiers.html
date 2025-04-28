@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rock. - Subscription Plans</title>
+  <title>DwayneBot Pricing</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <style>
@@ -19,7 +19,7 @@
     }
 
     body {
-        background-image: url('images/black-mountains-landscape.jpg');
+        background-image: url('images/pricing.jpg');
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
@@ -33,25 +33,35 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.55);
       z-index: -1;
     }
 
-    header {
-      width: 100%;
-      height: 100px;
-      display: flex;
-      align-items: center;
-      color: white;
-      font-size: 1.1em;
+    header{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        color: white;
+        font-size: 1.1em;
     }
-
+    
     .container {
-      display: flex;
-      width: 80%;
-      margin: auto;
-      justify-content: space-between;
-      align-items: center;
+        display: flex;
+        width: 80%;
+        margin: auto;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    nav{
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        font-size: 1.2em;
+        font-weight: 500;
+        color: #f29e0c;
     }
 
     nav ul {
@@ -69,17 +79,24 @@
     nav ul li:hover {
       transform: scale(1.1);
     }
-
+    
+    .top_text {
+        margin-bottom: -10px;
+        font-weight: bold;
+    }
+    
     #logo {
-      font-size: 1.8em;
+      font-size: 2em;
       font-weight: bold;
       color: white;
     }
 
-    #hom {
-      color: #f29e0c;
+    #hom{
+        color: #f29e0c;
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
     }
-
+    
     .pricing-hero {
       text-align: center;
       padding: 3rem 2rem 1rem;
@@ -122,8 +139,9 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 0 15px rgba(253, 216, 53, 0.2);
+      box-shadow: 0 0 15px rgba(253, 216, 53, 0.4);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-top: 30px;
     }
 
     .tier-card:hover {
@@ -133,7 +151,7 @@
 
     .tier-card h2 {
       color: white;
-      font-size: 1.8rem;
+      font-size: 2rem;
       margin-bottom: 0.5rem;
     }
 
@@ -148,7 +166,8 @@
       padding: 0;
       text-align: left;
       color: #ccc;
-      font-size: 0.95rem;
+      font-size: 1.3rem;
+      font-weight: bold;
       margin: 1rem 0;
     }
 
@@ -167,6 +186,7 @@
       border-radius: 6px;
       font-weight: 700;
       text-decoration: none;
+      font-size: 1.5rem;
     }
 
     @media (max-width: 768px) {
@@ -179,20 +199,22 @@
 <body>
   <header>
     <div class="container">
-      <h1 id="logo">Rock.</h1>
-      <nav>
-        <ul>
-          <li id="hom">Home</li>
-          <li>About</li>
-          <li>Login</li>
-        </ul>
-      </nav>
+      <h1 id="logo">DwayneBot</h1>
+          <nav>
+              <ul>
+                  <li>Home</li>
+                  <li>About</li>
+                  <li>Chat</li>
+                  <li id="hom">Pricing</li>
+              </ul>
+          </nav>
     </div>
   </header>
 
-  <section class="pricing-hero">
-    <h1>Choose Your Strength Plan</h1>
-    <p>Flexible pricing for every fitness journey.</p>
+  <section class="pricing-hero" style="margin-top: 60px;">
+    <h1>Flex Your Strength, Flex Your Plan</h1>
+    <p class="top_text" style="font-size: 1.5rem; margin-top: 40px;">The Rock knows that just like you, every fitness journey is unique.</p>
+    <p class="top_text" style="font-size: 1.5rem;">Choose a plan that fits your budget, and let's finish strong together.</p>
   </section>
 
   <section class="pricing-tiers">
