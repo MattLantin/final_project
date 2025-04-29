@@ -9,6 +9,11 @@ html, body {
   height: 100%;
 }
 
+#logo a {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
     background-image: url('../assets/pricing.jpg');
     background-size: cover;
