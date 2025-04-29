@@ -1,3 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+  button:hover {
+    transform: scale(1.1);
+    background-color: #ffca28;
+  }
+
+header{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1.1em;
+}
+
+nav{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #f29e0c;
+}
+
+nav ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  font-weight: bold;
+}
+
+nav ul li {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+nav ul li:hover {
+  transform: scale(1.1);
+}
+
+nav ul li a {
+color: #f29e0c;         /* Set your Rock-style orange color */
+text-decoration: none;  /* Remove underline */
+transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ffca28;          /* Brighter orange when hovering */
+}
+
 /* Cart Section */
 .cart-section {
     text-align: center;
@@ -10,6 +79,36 @@
     font-weight: 700;
     margin-bottom: 1rem;
   }
+  
+  .cart-section button:hover {
+      background-color: #ffca28;
+  }
+
+  #logo {
+  font-size: 2em;
+  font-weight: bold;
+  color: white;
+  }
+  
+      body {
+      background-image: url('../assets/pricing.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+      color: white;
+    }
+    
+        body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: -1;
+    }
+  
   
   .cart-items {
     display: flex;
@@ -48,6 +147,15 @@
     margin-top: 2rem;
   }
   
+  button:hover {
+    transform: scale(1.1);
+    background-color: #ffca28;
+  }
+  
+  a:hover {
+      transform: scale(1.1);
+  }
+  
   .cta {
     display: inline-block;
     background: #f29e0c;
@@ -69,7 +177,7 @@
     }
     section{
         width: 700px;
-    }
+    }ffca28
 }
 @media (max-width: 768px) {
     body {
@@ -84,7 +192,5 @@
     }
   }
   #hom{
-    color: #f29e0c;
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
+    color: #ffca28;
 }
