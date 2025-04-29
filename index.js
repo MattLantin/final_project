@@ -3,6 +3,9 @@ const cors = require('cors');
 const { MongoClient } = require('mongodb');
 const OpenAI = require('openai');
 const path = require('path');
+const dotenv = require('dotenv');   // <<=== ADD THIS
+
+dotenv.config();   // <<=== AND CALL THIS at the top
 
 const app = express();
 
@@ -13,7 +16,7 @@ const client = new MongoClient(uri);
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public')); // Serve files from public/
+app.use(express.static('public')); // Serve static files from public/
 
 async function startServer() {
   try {
@@ -41,10 +44,13 @@ async function startServer() {
       }
     });
 
-    // OpenAI connection (hardcoded API key)
+    // OpenAI connection (API key from .env)
     const openai = new OpenAI({
-      apiKey: 'sk-Your-OpenAI-API-Key-Here', // <-- Put your real key here
+      apiKey: process.env.OPENAI_API_KEY,   // <<=== Read from environment variable
     });
+
+    // Debug print (optional, for testing only - REMOVE after)
+    console.log('OpenAI API Key:', process.env.OPENAI_API_KEY);
 
     // Endpoint to handle chat messages
     app.post('/chat', async (req, res) => {
