@@ -55,6 +55,8 @@ ul {
 
 #hom{
     color: #f29e0c;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
 }
 
 ul li{
@@ -88,6 +90,7 @@ main h3{
     color: #f29e0c;
     font-size: 2em;
     font-weight: bold;
+    margin-bottom: 8px;
 }
 
 main p {
@@ -99,6 +102,8 @@ main p {
     font-weight: 1000;
     background-color: rgba(50, 50, 50, 0.5); /* <-- semi-transparent gray */
     border-radius: 10px; /* optional: makes edges rounded */
+    box-shadow: 0 0 15px rgba(253, 216, 53, 0.5);
+    border: 2px solid rgba(50, 50, 50, 0.05);
 }
 
 #logo {
@@ -107,15 +112,17 @@ main p {
 
 
 #btn1{
-    width: 120px;
-    height: 40px;
+    width: 170px;
+    height: 50px;
     border-radius: 5px;
     background-color: #f29e0c;
     border: 0px;
     font-weight: bold;
     margin-left: 5px;
-    font-size: 1.1em;
+    font-size: 1.55em;
     transition: transform 0.3s ease;
+    display: block;     
+    margin: 20px auto;     
 }
 
 #btn1:hover{
@@ -123,22 +130,8 @@ main p {
     cursor: pointer;
 }
 
-#btn2{
-    width: 120px;
-    height: 40px;
-    border-radius: 5px;
-    margin-left: 30px;
-    border: 2px solid #f29e0c;
-    background-color: rgba(0, 0, 0, 0);
-    color: #f29e0c;
-    font-weight: bold;
-    font-size: 1.1em;
-    transition: transform 0.3s ease;
-}
-
-#btn2:hover{
-    transform: scale(1.1);
-    cursor: pointer;
+a {
+    text-decoration: none;
 }
 
 .contcirculo{
