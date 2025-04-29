@@ -68,6 +68,11 @@ nav ul li {
     transition: transform 0.3s ease;
 }
 
+nav ul li a{
+    text-decoration: none;
+    color: inherit;
+}
+
 nav ul li:hover {
     transform: scale(1.1);
 }

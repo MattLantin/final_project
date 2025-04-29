@@ -68,6 +68,11 @@ ul li:hover{
     transform: scale(1.1);
 }
 
+ul li a{
+    text-decoration: none;
+    color: inherit;
+}
+
 section{
     width: 800px;
     height: 800px;
