@@ -44,6 +44,50 @@ async function startServer() {
       }
     });
 
+    // Endpoint to fetch orders
+    app.get('/orders', async (req, res) => {
+      try {
+        const db = client.db('chatbotApp');
+        const orders = db.collection('orders');
+        const ordersList = await orders.aggregate([
+          { $unwind: "$items" },
+          { $project: { order_id: "$_id", product_name: "$items.name", price: "$items.price" } },
+          { $sort: { order_id: -1 } }
+        ]).toArray();
+
+        let html = '';
+
+        if (ordersList.length > 0) {
+          let lastOrderId = null;
+          ordersList.forEach(order => {
+            const currentOrderId = order.order_id.toString();
+
+            if (currentOrderId !== lastOrderId) {
+              // Close previous order
+              if (lastOrderId !== null) html += `</div><hr>`;
+              html += `<div class='order'>`;
+              html += `<h3>Order ID: #${currentOrderId}</h3>`;
+              lastOrderId = currentOrderId;
+            }
+
+            html += `<h4>Product: ${order.product_name}</h4>`;
+            html += `<p>Price: $${order.price}</p>`;
+          });
+          // Close last order
+          html += `</div><hr>`;
+        } else {
+          html = '<p>No orders available</p>';
+        }
+
+        // Send response
+        res.send(html);
+
+      } catch (error) {
+        console.error('Error fetching orders:', error);
+        res.status(500).send('Error fetching orders');
+      }
+    });
+
     // OpenAI connection (API key from .env)
     const openai = new OpenAI({
       apiKey: process.env.OPENAI_API_KEY,   // <<=== Read from environment variable
