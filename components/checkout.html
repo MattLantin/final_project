@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DwayneBot Cart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../styling/style.css">
+  <link rel="stylesheet" href="../styling/checkout.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 id="logo">DwayneBot</h1>
+          <nav>
+              <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./chatbot.html">Chat</a></li>
+                <li><a href="./tiers.html">Pricing</a></li>
+                <li id="hom"><a href="./checkout.html">Cart</a></li>
+              </ul>
+          </nav>
+    </div>
+  </header>
+
+  <section class="cart-section" style="margin-top: 80px;">
+    <h1>Your Cart</h1>
+    <div class="cart-items" id="cartContainer">
+    </div>
+    <div class="button-wrapper" id="buttonContainer">
+      <a href="tiers.html" class="cta">Get Shopping</a>
+    </div>
+  </section>
+
+  <script src="../scripts/checkout.js"></script>
+</body>
+</html>

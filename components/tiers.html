@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DwayneBot Pricing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../styling/tiers.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 id="logo">DwayneBot</h1>
+          <nav>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="./about.html">About</a></li>
+              <li><a href="./chatbot.html">Chat</a></li>
+              <li id="hom"><a href="./tiers.html">Pricing</a></li>
+              <li><a href="./checkout.html">Cart</a></li>
+            </ul>
+          </nav>
+    </div>
+  </header>
+
+  <section class="pricing-hero" style="margin-top: 80px;">
+    <h1>Flex Your Strength, Flex Your Plan</h1>
+    <p class="top_text" style="font-size: 1.5rem; margin-top: 40px;">The Rock knows that, like you, every fitness journey is one-of-a-kind.</p>
+    <p class="top_text" style="font-size: 1.5rem;">Choose a plan that suits your budget, and let's grow stronger and healthier together!</p>
+    
+  </section>
+
+  <section class="pricing-tiers">
+    <div class="tier-wrapper">
+      <div class="tier-card">
+        <div>
+          <h2>Starter</h2>
+          <p class="price">$29/mo</p>
+          <ul>
+            <li>100 messages per month
+            <li>Basic NLP</li>
+            <li>No integrations</li>
+          </ul>
+        </div>
+        <a href="./checkout.html" class="cta" onclick="storePlan('Starter', 29)">Subscribe</a>
+      </div>
+    </div>
+
+    <div class="tier-wrapper">
+      <div class="tier-card">
+        <div>
+          <h2>Pro</h2>
+          <p class="price">$59/mo</p>
+          <ul>
+            <li>5,000 messages per month</li>
+            <li>Custom personality and tone settings</li>
+            <li>Integrations with Slack, Discord, or a website</li>
+          </ul>
+        </div>
+        <a href="./checkout.html" class="cta" onclick="storePlan('Pro', 59)">Subscribe</a>
+      </div>
+    </div>
+
+    <div class="tier-wrapper">
+      <div class="tier-card">
+        <div>
+          <h2>Elite</h2>
+          <p class="price">$99/mo</p>
+          <ul>
+            <li>Unlimited messages</li>
+            <li>Persistent memory and context</li>
+            <li>Upload-your-own-data</li>
+          </ul>
+        </div>
+        <a href="./checkout.html" class="cta" onclick="storePlan('Elite', 99)">Subscribe</a>
+      </div>
+    </div>
+  </section>
+</body>
+<script>
+    function storePlan(tier, price) {
+      const cart = [{ name: tier, price: price }];
+      sessionStorage.setItem('cart', JSON.stringify(cart));
+    }
+</script>
+</html>
