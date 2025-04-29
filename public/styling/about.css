@@ -84,9 +84,7 @@ nav ul li:hover {
 }
 
 #hom {
-    color: #f29e0c;
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
+    color: #ffca28;
 }
 
 .about-box {
@@ -145,6 +143,7 @@ nav ul li:hover {
 .cta-button:hover {
     transform: scale(1.1);
     cursor: pointer;
+    background-color: #ffca28;
  }
 
 
@@ -177,7 +176,5 @@ nav ul li a:hover {
 }
 
 #hom a {
-    color: #f29e0c;
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
+    color: #ffca28;
 }
