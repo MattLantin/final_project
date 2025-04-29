@@ -5,6 +5,11 @@
     align-items: center;
     margin-top: 50px;
   }
+
+#logo a {
+  text-decoration: none;
+  color: inherit;
+}
   
   body {
     background-image: url('../assets/chatbot.jpg');
