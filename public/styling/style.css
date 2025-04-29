@@ -53,9 +53,7 @@ ul {
 }
 
 #hom{
-    color: #f29e0c;
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
+    color: #ffca28;
 }
 
 ul li{
@@ -127,6 +125,7 @@ main p {
 #btn1:hover{
     transform: scale(1.1);
     cursor: pointer;
+    background-color: #ffca28;
 }
 
 a {
@@ -207,8 +206,6 @@ a {
 
 nav ul li a {
     color: #f29e0c;         /* Set your Rock-style orange color */
-    text-decoration: none;  /* Remove underline */
-    transition: color 0.3s ease;
   }
   
   nav ul li a:hover {
