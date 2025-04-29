@@ -6,6 +6,11 @@
     font-family: "Quicksand", sans-serif;
 }
 
+#logo a {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
     background-image: url(../assets/home.jpg);
     background-size: cover;
